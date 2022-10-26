@@ -1,7 +1,8 @@
 import express from 'express';
+import cars from './routers/cars';
 
 const app = express();
 
-export default app;
+app.use('/cars', cars);
 
-// começando o projeto
+export default app;
