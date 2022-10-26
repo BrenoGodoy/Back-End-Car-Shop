@@ -8,7 +8,7 @@ const doorsAndSeatsQty = (req: Request, res: Response, next: NextFunction) => {
 
   if (!seatsQty || !doorsQty) {
     return res.status(400)
-      .json({ message: 'ERRO: Quantidade de Assentos ou Portas não especificado' });
+      .json({ message: 'ERRO: Elementos faltando no body do request!' });
   }
 
   if (seatsQty < 2 || doorsQty < 2) {
