@@ -21,6 +21,13 @@ class ControllerCars {
     if (error) return res.status(code).json({ error });
     return res.status(code).json(response);
   }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+    const { code, response, error } = await this.serviceCars.update(id, req.body);
+    if (error) return res.status(code).json({ error });
+    return res.status(code).json(response);
+  }
 }
 
 export default ControllerCars;

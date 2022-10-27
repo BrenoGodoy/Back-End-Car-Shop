@@ -29,4 +29,13 @@ route.get('/:id', middleware, (req: express.Request, res: express.Response) => {
   cars.getOne(req, res);
 });
 
+route.put(
+  '/:id', 
+  [middleware, doorsAndSeatsQty, verifyExists, verifyTypes, verifyTypes2],
+
+  (req: express.Request, res: express.Response) => {
+    cars.update(req, res);
+  },
+);
+
 export default route;

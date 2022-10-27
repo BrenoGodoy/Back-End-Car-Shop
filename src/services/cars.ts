@@ -18,6 +18,11 @@ class ServiceCars {
     if (!response) return { code: 404, error: 'Object not found' };
     return { code: 200, response };
   }
+  async update(id: string, body: ICar) {
+    const response = await this.model.update(id, body);
+    if (!response) return { code: 404, error: 'Object not found' };
+    return { code: 200, response };
+  }
 }
 
 export default ServiceCars;
