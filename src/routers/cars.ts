@@ -38,4 +38,8 @@ route.put(
   },
 );
 
+route.delete('/:id', middleware, (req: express.Request, res: express.Response) => {
+  cars.delete(req, res);
+});
+
 export default route;
