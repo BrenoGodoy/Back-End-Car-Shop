@@ -14,6 +14,13 @@ class ControllerCars {
     if (message) return res.status(code).json({ message });
     return res.status(code).json(response);
   }
+
+  async getOne(req: Request, res: Response) {
+    const { id } = req.params;
+    const { code, response, error } = await this.serviceCars.getOne(id);
+    if (error) return res.status(code).json({ error });
+    return res.status(code).json(response);
+  }
 }
 
 export default ControllerCars;

@@ -2,9 +2,11 @@ import * as express from 'express';
 import ControllerCars from '../controllers/cars';
 import ServiceCars from '../services/cars';
 import Car from '../models/cars';
+import middleware from '../middlewares/getOne.mid';
 import 
 {
-  doorsAndSeatsQty, verifyExists, verifyTypes, verifyTypes2 } from '../middlewares/carsMid';
+  doorsAndSeatsQty, 
+  verifyExists, verifyTypes, verifyTypes2 } from '../middlewares/registeNewCar.mid';
 
 const route = express.Router();
 
@@ -21,6 +23,10 @@ route.post(
 
 route.get('/', (req: express.Request, res: express.Response) => {
   cars.getAll(req, res);
+});
+
+route.get('/:id', middleware, (req: express.Request, res: express.Response) => {
+  cars.getOne(req, res);
 });
 
 export default route;
