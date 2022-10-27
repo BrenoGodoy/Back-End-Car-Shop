@@ -19,4 +19,8 @@ route.post(
   },
 );
 
+route.get('/', (req: express.Request, res: express.Response) => {
+  cars.getAll(req, res);
+});
+
 export default route;

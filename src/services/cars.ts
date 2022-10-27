@@ -8,6 +8,11 @@ class ServiceCars {
     if (!response) return { code: 400, message: 'erro' };
     return { code: 201, response };
   }
+  async getAll() {
+    const response = await this.model.read();
+    if (!response) return { code: 400, message: 'erro' };
+    return { code: 200, response };
+  }
 }
 
 export default ServiceCars;
