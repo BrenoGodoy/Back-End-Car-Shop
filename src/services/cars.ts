@@ -36,7 +36,7 @@ class ServiceCars {
 
     const response = await this.model.delete(id);
     if (!response) return { code: 404, error };
-    return { code: 204 };
+    return { code: 204, response };
   }
 }
 

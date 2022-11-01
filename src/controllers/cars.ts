@@ -30,9 +30,9 @@ class ControllerCars {
   }
   async delete(req: Request, res: Response) {
     const { id } = req.params;
-    const { code, error } = await this.serviceCars.delete(id);
+    const { code, response, error } = await this.serviceCars.delete(id);
     if (error) return res.status(code).json({ error });
-    return res.status(code);
+    return res.status(code).json(response);
   }
 }
 
